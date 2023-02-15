@@ -19,8 +19,6 @@ public class Alumno {
     private String userName;
     private String password;
 
-    
-
     public Alumno(int codigo) {
         this.codigo = codigo;
     }
@@ -91,8 +89,10 @@ public class Alumno {
         this.userName = userName;
     }
 
+
     public List<Asignatura> getAsignaturas() {
-        return asignaturas;
+        return getAsignaturas();
+        //return asignaturas;
     }
 
     public void setAsignaturas(List<Asignatura> asignaturas) {

@@ -47,7 +47,6 @@ class AlumnoRepositoryTests {
 		u3.setPassword(encoder.encode("1234"));
 
         
-
 		Asignatura a1 = new Asignatura();
 		a1.setCodigo("MAT");
 		a1.setDescrripcion("Matemáticas");
@@ -85,6 +84,16 @@ class AlumnoRepositoryTests {
 
 		u1.setAsignaturas(asignaturaAlumno1);
 
+		List<Asignatura> asignaturaAlumno2 = new ArrayList<Asignatura>();
+		asignaturaAlumno1.add(a4);
+		asignaturaAlumno1.add(a5);
+		asignaturaAlumno1.add(a6);
+
+		u2.setAsignaturas(asignaturaAlumno2);
+
+		List<Asignatura> asignaturaAlumno3 = new ArrayList<Asignatura>();
+
+		u3.setAsignaturas(asignaturaAlumno3);
 
 		Alumno u1OK = repoAlumno.save(u1);
 

@@ -18,10 +18,8 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        // return NoOpPasswordEncoder.getInstance();
-        
+        // return NoOpPasswordEncoder.getInstance();  
     }
-
 
     @Bean
     public UserDetailsService users() {
@@ -37,6 +35,7 @@ public class SecurityConfig {
                 .password("{bcrypt}$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW")
                 .authorities("USER", "ADMIN")
                 .build();
+
         return new InMemoryUserDetailsManager(user, admin);
     }
 
@@ -50,8 +49,8 @@ public class SecurityConfig {
         return authProvider;
     }
 
-    // @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    @Bean
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
                 .authorizeRequests()
@@ -64,4 +63,5 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 }
