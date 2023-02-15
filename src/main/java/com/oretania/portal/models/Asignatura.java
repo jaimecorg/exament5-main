@@ -3,13 +3,25 @@ package com.oretania.portal.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import java.util.List;
+
+import javax.persistence.*;
+
 @Entity
+@Table(name = "asignaturas")
 public class Asignatura {
 
     @Id
     private String codigo;
+
+    @Column(name = "descrripcion")
     private String descrripcion;
 
+    @ManyToMany(mappedBy = "asignaturas")
+    private List<Alumno> alumnos;
+
+    @Transient
+    private boolean tieneAsignatura;
 
     public Asignatura() {
     }
@@ -57,6 +69,22 @@ public class Asignatura {
         } else if (!codigo.equals(other.codigo))
             return false;
         return true;
+    }
+
+    public List<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(List<Alumno> alumnos) {
+        this.alumnos = alumnos;
+    }
+
+    public boolean isTieneAsignatura() {
+        return tieneAsignatura;
+    }
+
+    public void setTieneAsignatura(boolean tieneAsignatura) {
+        this.tieneAsignatura = tieneAsignatura;
     }
 
 }

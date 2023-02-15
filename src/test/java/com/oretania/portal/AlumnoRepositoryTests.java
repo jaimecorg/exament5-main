@@ -46,6 +46,11 @@ class AlumnoRepositoryTests {
 		u3.setUserName("alumno3");
 		u3.setPassword(encoder.encode("1234"));
 
+		Alumno u4 = new Alumno();
+		u4.setCodigo(4);
+		u4.setUserName("director");
+		u4.setPassword(encoder.encode("1234"));
+
         
 		Asignatura a1 = new Asignatura();
 		a1.setCodigo("MAT");
@@ -77,6 +82,10 @@ class AlumnoRepositoryTests {
 		a6.setDescrripcion("Química");
 		repoAsignatura.save(a6);
 
+		Asignatura aDirector = new Asignatura();
+		aDirector.setCodigo("TODAS");
+		aDirector.setDescrripcion("TODAS");
+
 		List<Asignatura> asignaturaAlumno1 = new ArrayList<Asignatura>();
 		asignaturaAlumno1.add(a1);
 		asignaturaAlumno1.add(a2);
@@ -94,6 +103,11 @@ class AlumnoRepositoryTests {
 		List<Asignatura> asignaturaAlumno3 = new ArrayList<Asignatura>();
 
 		u3.setAsignaturas(asignaturaAlumno3);
+
+		List<Asignatura> asignaturaAlumno4 = new ArrayList<Asignatura>();
+		asignaturaAlumno4.add(aDirector);
+
+		u4.setAsignaturas(asignaturaAlumno4);
 
 		Alumno u1OK = repoAlumno.save(u1);
 

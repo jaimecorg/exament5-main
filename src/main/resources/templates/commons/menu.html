@@ -16,6 +16,26 @@
                             <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/matematicas}"
                                 href="welcome.html">Matemáticas</a>
                         </li>
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('TODAS','Lengua')">
+                            <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/lengua}"
+                                href="welcome.html">Lengua</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('TODAS','Inglés')">
+                            <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/ingles}"
+                                href="welcome.html">Inglés</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('TODAS','Religión')">
+                            <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/religion}"
+                                href="welcome.html">Religión</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('TODAS','Química')">
+                            <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/quimica}"
+                                href="welcome.html">Química</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('TODAS','Física')">
+                            <a class="nav-link active" aria-current="page" th:href="@{/asignaturas/fisica}"
+                                href="welcome.html">Física</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" th:href="@{/logout}"><i class="bi bi-box-arrow-left" th:text="logout"></i></a>
                         </li>
